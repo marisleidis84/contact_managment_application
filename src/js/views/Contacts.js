@@ -45,7 +45,7 @@ export const Contacts = props => {
 
 						<ContactCard
 							onDelete={() => setState({ showModal: true })}
-							fullname={"Mike Anamendolla"}
+							full_name={"Mike Anamendolla"}
 							address={"5489 Region Metropolitana"}
 							phone={"+56 982 776 884"}
 							email={"mike@gmail.com"}

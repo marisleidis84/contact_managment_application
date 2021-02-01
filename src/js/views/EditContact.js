@@ -24,15 +24,16 @@ export const EditContact = () => {
 		<div className="container">
 			<div>
 				<h1 className="text-center mt-5">Edit contact</h1>
-				<form onSubmit={e => actions.submitEditForm(e, editInputValue)}>
+				<form onSubmit={e => actions.getUpdate(e, editInputValue)}>
 					<div className="form-group">
 						<label>Full Name</label>
 						<input
 							type="text"
 							className="form-control"
 							name="full_name"
-							placeholder="Full Name"
+							placeholder={store.edit.full_name}
 							onChange={inputValue}
+							required
 						/>
 					</div>
 					<div className="form-group">
@@ -41,8 +42,9 @@ export const EditContact = () => {
 							type="email"
 							className="form-control"
 							name="email"
-							placeholder="Enter email"
+							placeholder={store.edit.email}
 							onChange={inputValue}
+							required
 						/>
 					</div>
 					<div className="form-group">
@@ -51,8 +53,9 @@ export const EditContact = () => {
 							type="phone"
 							className="form-control"
 							name="phone"
-							placeholder="Enter phone"
+							placeholder={store.edit.phone}
 							onChange={inputValue}
+							required
 						/>
 					</div>
 					<div className="form-group">
@@ -61,8 +64,9 @@ export const EditContact = () => {
 							type="text"
 							className="form-control"
 							name="address"
-							placeholder="Enter address"
+							placeholder={store.edit.address}
 							onChange={inputValue}
+							required
 						/>
 					</div>
 					<button type="submit" className="btn btn-primary form-control">

@@ -13,7 +13,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 			},
 			//Aqui creamos los contactos mediante el metodo POST
 			getAddContact: obj => {
-				console.log(JSON.stringify(obj));
 				fetch("https://assets.breatheco.de/apis/fake/contact/", {
 					method: "POST",
 					body: JSON.stringify(obj),
@@ -30,7 +29,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/my_personal_agenda", {
 					method: "GET",
 					headers: {
-						"Content-Type": "aplication/json"
+						"Content-Type": "application/json"
 					}
 				})
 					.then(res => res.json())
@@ -45,7 +44,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 				fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {
 					method: "GET",
 					headers: {
-						"Content-Type": "aplication/json"
+						"Content-Type": "application/json"
 					}
 				})
 					.then(res => res.json())
@@ -55,6 +54,24 @@ const getState = ({ getStore, setStore, getActions }) => {
 							edit: data
 						});
 					});
+			},
+
+			getUpdate: (e, obj) => {
+				e.preventDefault();
+				let id = getStore().edit.id;
+				console.log(id);
+				console.log(JSON.stringify(obj));
+
+				fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {
+					method: "PUT",
+					body: JSON.stringify(obj),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => res.json())
+					.catch(error => console.error("Error:", error))
+					.then(response => console.log("Success:", response));
 			}
 		}
 	};
