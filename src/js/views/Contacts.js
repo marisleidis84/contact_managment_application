@@ -12,6 +12,11 @@ export const Contacts = props => {
 
 	const { store, actions } = useContext(Context);
 
+	const sendupdater = async (e, id) => {
+		e.preventDefault(e);
+		await actions.getEdit(id);
+	};
+
 	return (
 		<div className="container">
 			<div>
@@ -29,10 +34,11 @@ export const Contacts = props => {
 									<ContactCard
 										key={i}
 										onDelete={() => setState({ showModal: true })}
-										fullname={valor.full_name}
+										full_name={valor.full_name}
 										address={valor.address}
 										phone={valor.phone}
 										email={valor.email}
+										Edit={e => sendupdater(e, valor.id)}
 									/>
 								);
 							})}

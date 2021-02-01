@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import MikePhoto from "../../img/m101.jpg";
@@ -17,14 +18,16 @@ export const ContactCard = props => {
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
 					<div className=" float-right">
-						<button className="btn">
-							<i className="fas fa-pencil-alt mr-3" />
+						<button className="btn" onClick={props.Edit}>
+							<Link to="/edit">
+								<i className="fas fa-pencil-alt mr-3" />
+							</Link>
 						</button>
 						<button className="btn" onClick={() => props.onDelete()}>
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
-					<label className="name lead">{props.fullname}</label>
+					<label className="name lead">{props.full_name}</label>
 					<br />
 					<i className="fas fa-map-marker-alt text-muted mr-3" />
 					<span className="text-muted">{props.address}</span>
@@ -55,11 +58,12 @@ export const ContactCard = props => {
  * your component's properties
  **/
 ContactCard.propTypes = {
-	fullname: PropTypes.string,
+	full_name: PropTypes.string,
 	address: PropTypes.string,
 	phone: PropTypes.string,
 	email: PropTypes.string,
 	history: PropTypes.object,
+	Edit: PropTypes.func,
 	onDelete: PropTypes.func
 };
 
