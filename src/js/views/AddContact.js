@@ -29,40 +29,48 @@ export const AddContact = () => {
 						<label>Full Name</label>
 						<input
 							type="text"
+							id="full_name"
 							className="form-control"
 							name="full_name"
-							placeholder="Full Name"
+							placeholder="Full name"
 							onChange={inputValue}
+							required
 						/>
 					</div>
 					<div className="form-group">
 						<label>Email</label>
 						<input
 							type="email"
+							id="email"
 							className="form-control"
 							name="email"
 							placeholder="Enter email"
 							onChange={inputValue}
+							required
 						/>
 					</div>
 					<div className="form-group">
 						<label>Phone</label>
 						<input
 							type="phone"
+							id="phone"
 							className="form-control"
 							name="phone"
 							placeholder="Enter phone"
 							onChange={inputValue}
+							required
 						/>
 					</div>
 					<div className="form-group">
 						<label>Address</label>
 						<input
 							type="text"
+							id="address"
 							className="form-control"
 							name="address"
 							placeholder="Enter address"
 							onChange={inputValue}
+							required
 						/>
 					</div>
 					<button type="submit" className="btn btn-primary form-control">

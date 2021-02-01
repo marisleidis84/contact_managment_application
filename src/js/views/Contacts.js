@@ -21,7 +21,7 @@ export const Contacts = props => {
 		<div className="container">
 			<div>
 				<p className="text-right my-3">
-					<Link className="btn btn-success" to="/add">
+					<Link className="btn btn-success mt-3" to="/add">
 						Add new contact
 					</Link>
 				</p>
@@ -43,14 +43,6 @@ export const Contacts = props => {
 									/>
 								);
 							})}
-
-						<ContactCard
-							onDelete={() => setState({ showModal: true })}
-							full_name={"Mike Anamendolla"}
-							address={"5489 Region Metropolitana"}
-							phone={"+56 982 776 884"}
-							email={"mike@gmail.com"}
-						/>
 					</ul>
 				</div>
 			</div>

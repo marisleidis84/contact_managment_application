@@ -33,16 +33,34 @@ export const Modal = props => {
 						<p>Warning: unknown consequences after this point... Kidding!</p>
 					</div>
 					<div className="modal-footer">
-						<button type="button" className="btn btn-primary">
-							Oh no!
-						</button>
-						<button
-							type="button"
-							className="btn btn-secondary"
-							data-dismiss="modal"
-							onClick={e => actions.getDelete(e)}>
-							Do it!
-						</button>
+						{props.onClose ? (
+							<button
+								onClick={() => props.onClose()}
+								type="button"
+								className="btn btn-primary"
+								data-dismiss="modal"
+								aria-label="Close">
+								Oh no!
+							</button>
+						) : (
+							""
+						)}
+
+						{props.onClose ? (
+							<button
+								onClick={e => {
+									actions.getDelete(e);
+									props.onClose();
+								}}
+								type="button"
+								className="btn btn-secondary"
+								data-dismiss="modal"
+								aria-label="Close">
+								Do it!
+							</button>
+						) : (
+							""
+						)}
 					</div>
 				</div>
 			</div>
@@ -56,6 +74,7 @@ export const Modal = props => {
 Modal.propTypes = {
 	history: PropTypes.object,
 	onClose: PropTypes.func,
+	onClose1: PropTypes.func,
 	show: PropTypes.bool
 };
 
@@ -65,5 +84,6 @@ Modal.propTypes = {
  **/
 Modal.defaultProps = {
 	show: false,
-	onClose: null
+	onClose: null,
+	onClose1: null
 };

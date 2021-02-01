@@ -29,6 +29,7 @@ export const EditContact = () => {
 						<label>Full Name</label>
 						<input
 							type="text"
+							id="full_name"
 							className="form-control"
 							name="full_name"
 							placeholder={store.edit.full_name}
@@ -40,6 +41,7 @@ export const EditContact = () => {
 						<label>Email</label>
 						<input
 							type="email"
+							id="email"
 							className="form-control"
 							name="email"
 							placeholder={store.edit.email}
@@ -51,6 +53,7 @@ export const EditContact = () => {
 						<label>Phone</label>
 						<input
 							type="phone"
+							id="phone"
 							className="form-control"
 							name="phone"
 							placeholder={store.edit.phone}
@@ -62,6 +65,7 @@ export const EditContact = () => {
 						<label>Address</label>
 						<input
 							type="text"
+							id="address"
 							className="form-control"
 							name="address"
 							placeholder={store.edit.address}

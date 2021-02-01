@@ -10,6 +10,11 @@ const getState = ({ getStore, setStore, getActions }) => {
 			submitForm: (e, form) => {
 				e.preventDefault();
 				getActions().getAddContact(form);
+				document.getElementById("full_name").value = "";
+				document.getElementById("email").value = "";
+				document.getElementById("phone").value = "";
+				document.getElementById("address").value = "";
+				alert("Contacto enviado");
 			},
 			//Aqui creamos los contactos mediante el metodo POST
 			getAddContact: obj => {
@@ -69,6 +74,17 @@ const getState = ({ getStore, setStore, getActions }) => {
 					.then(res => res.json())
 					.catch(error => console.error("Error:", error))
 					.then(response => console.log("Success:", response));
+
+				document.getElementById("full_name").value = "";
+				document.getElementById("email").value = "";
+				document.getElementById("phone").value = "";
+				document.getElementById("address").value = "";
+
+				document.getElementById("full_name").placeholder = "Full name";
+				document.getElementById("email").placeholder = "Enter email";
+				document.getElementById("phone").placeholder = "Enter phone";
+				document.getElementById("address").placeholder = "Enter address";
+				alert("Contacto editado");
 			},
 
 			getDelete: e => {
