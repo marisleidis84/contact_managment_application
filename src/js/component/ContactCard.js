@@ -24,7 +24,7 @@ export const ContactCard = props => {
 							</Link>
 						</button>
 						<button className="btn" onClick={() => props.onDelete()}>
-							<i className="fas fa-trash-alt" />
+							<a className="fas fa-trash-alt" type="button" onClick={props.trash} />
 						</button>
 					</div>
 					<label className="name lead">{props.full_name}</label>
@@ -64,6 +64,7 @@ ContactCard.propTypes = {
 	email: PropTypes.string,
 	history: PropTypes.object,
 	Edit: PropTypes.func,
+	trash: PropTypes.func,
 	onDelete: PropTypes.func
 };
 

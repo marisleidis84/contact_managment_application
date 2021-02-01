@@ -59,12 +59,23 @@ const getState = ({ getStore, setStore, getActions }) => {
 			getUpdate: (e, obj) => {
 				e.preventDefault();
 				let id = getStore().edit.id;
-				console.log(id);
-				console.log(JSON.stringify(obj));
-
 				fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {
 					method: "PUT",
 					body: JSON.stringify(obj),
+					headers: {
+						"Content-Type": "application/json"
+					}
+				})
+					.then(res => res.json())
+					.catch(error => console.error("Error:", error))
+					.then(response => console.log("Success:", response));
+			},
+
+			getDelete: e => {
+				e.preventDefault();
+				let id = getStore().edit.id;
+				fetch(`https://assets.breatheco.de/apis/fake/contact/${id}`, {
+					method: "DELETE",
 					headers: {
 						"Content-Type": "application/json"
 					}

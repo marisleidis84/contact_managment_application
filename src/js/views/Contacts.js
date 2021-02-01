@@ -39,6 +39,7 @@ export const Contacts = props => {
 										phone={valor.phone}
 										email={valor.email}
 										Edit={e => sendupdater(e, valor.id)}
+										trash={e => sendupdater(e, valor.id)}
 									/>
 								);
 							})}
